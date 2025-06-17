@@ -1,15 +1,14 @@
 package com.willy1220.crmdemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Product {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.UUID) // using .save() to generate UUID
+    private String id;
+
 
     private String name;
     @ManyToOne
@@ -19,7 +18,7 @@ public class Product {
     private int stock;
     private int cost;
 
-    public Product(int id, String name, Brand brand, int price, int stock, int cost) {
+    public Product(String id, String name, Brand brand, int price, int stock, int cost) {
         this.id = id;
         this.name = name;
         this.brand = brand;
@@ -33,11 +32,11 @@ public class Product {
     }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
