@@ -1,0 +1,23 @@
+### Get method
+GET http://localhost:8080/v1
+
+### Get method by ID
+GET http://localhost:8080/v1/fbeeffc5-3781-41b4-b67e-d914eee8a645
+
+
+### Send POST request with json body
+POST http://localhost:8080/v1/post
+Content-Type: application/json
+
+{
+  "name": "Benz-gascat",
+  "cost": 590,
+  "price": 1000,
+  "stock": 320,
+  "brand": {
+    "id": 2
+  }
+}
+
+### Delete method by ID
+DELETE http://localhost:8080/v1/2166ac8d-7959-477e-b17c-f740269dc0f7
