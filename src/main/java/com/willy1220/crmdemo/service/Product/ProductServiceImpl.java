@@ -55,8 +55,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findProductsByBrand(int brandId) {
-        Brand targetBrand= brandService.getBrandById(brandId);
+    public List<Product> findProductsByBrandName(String brandName) {
+        Brand targetBrand= brandService.getBrandByName(brandName);
+        int brandId = targetBrand.getId();
         return repository.findProductsByBrandId(brandId);
     }
 

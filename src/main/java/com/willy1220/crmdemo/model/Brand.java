@@ -1,22 +1,26 @@
 package com.willy1220.crmdemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true, nullable = false)
     private String name;
+
 
 
 
     public Brand(int id, String name) {
         this.id = id;
         this.name = name;
+
     }
 
     public Brand() {
@@ -47,5 +51,7 @@ public class Brand {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+
 
 }

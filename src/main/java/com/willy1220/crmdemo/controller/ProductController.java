@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/product")
 public class ProductController {
     private final ProductServiceImpl service;
 
@@ -35,6 +35,11 @@ public class ProductController {
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable UUID id) {
         service.deleteProductById(id);
+    }
+
+    @GetMapping("/findby/{brandName}")
+    public List<Product> findProductsByBrand(@PathVariable String brandName){
+        return service.findProductsByBrandName(brandName);
     }
 
 

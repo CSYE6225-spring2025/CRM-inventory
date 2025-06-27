@@ -22,8 +22,7 @@ public interface ProductService {
     public void updateProductBrand(UUID id,  int brandId);
 
     // Search product by conditions
-    public List<Product> findProductsByBrand(int brandId);
-
+    public List<Product> findProductsByBrandName(String brandName);
     public List<Product> findProductsByCarType(int carTypeId);
 
     public List<Product> searchProductsByKeyword(String keyword);
