@@ -26,16 +26,21 @@ public class Product {
     @Column(name="Cost")
     private BigDecimal cost;
 
-    @Column(name = "Vehicle_Tpye")
+    @Column(name = "Vehicle_tpye")
     @NotNull
     private String vehicleTpye;
 
-    public Product(UUID id, String name, Brand brand, BigDecimal cost, String vehicleTpye) {
-        this.id = id;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Product_tpye_id", nullable = true)
+    private ProductType productTpye;
+
+    public Product( String name, Brand brand, BigDecimal cost, String vehicleTpye, ProductType productTpye) {
         this.name = name;
         this.brand = brand;
         this.cost = cost;
         this.vehicleTpye = vehicleTpye;
+        this.productTpye = productTpye;
     }
 
     public Product() {
@@ -88,6 +93,14 @@ public class Product {
         this.vehicleTpye = vehicleTpye;
     }
 
+
+    public ProductType getProductTpye() {
+        return productTpye;
+    }
+
+    public void setProductTpye(ProductType productTpye) {
+        this.productTpye = productTpye;
+    }
 
     @Override
     public String toString() {

@@ -1,23 +1,38 @@
 ### Get method
-GET http://localhost:8080/v1
+GET http://localhost:8080/v1/product
 
 ### Get method by ID
-GET http://localhost:8080/v1/fbeeffc5-3781-41b4-b67e-d914eee8a645
+GET http://localhost:8080/v1/product/fbeeffc5-3781-41b4-b67e-d914eee8a645
 
 
 ### Send POST request with json body
-POST http://localhost:8080/v1/post
+POST http://localhost:8080/v1/product/post
 Content-Type: application/json
 
 {
-  "name": "Benz-gascat",
-  "cost": 590,
-  "price": 1000,
-  "stock": 320,
+  "name": "YD25 43F5 ACM",
+  "cost": 60,
+  "vehicleTpye": "勁勇2.5 YD25T 08-",
+  "productTpye": "ACM",
   "brand": {
-    "id": 2
+    "id": 4
   }
 }
 
 ### Delete method by ID
-DELETE http://localhost:8080/v1/2166ac8d-7959-477e-b17c-f740269dc0f7
+DELETE http://localhost:8080/v1/product/bfd15952-0f7f-415c-8268-eec5cecad5ca
+
+### Send POST request with json body
+POST http://localhost:8080/v1/brand/post
+Content-Type: application/json
+
+{
+  "name": "BMW"
+}
+
+### Get list of products of a brand
+GET localhost:8080/v1/product/findby/4
+
+
+### Get list of products of a brand by using List<Product> products
+GET localhost:8080/v1/product/findby/Nissan
